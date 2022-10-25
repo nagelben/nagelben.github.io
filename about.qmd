@@ -1,6 +1,6 @@
 ---
 title: "About"
-image: nagelAA.jpg
+image: profile.jpg
 about:
   template: jolla
   links:
@@ -15,4 +15,4 @@ about:
       href: https://github.com/nagelben
 ---
 
-About this blog
+The website of Ben Nagel, a Virginia Tech graduate student studying Statistics.
