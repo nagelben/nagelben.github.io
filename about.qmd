@@ -1,19 +1,18 @@
 ---
 title: "About"
-image: profile.jpg
+image: nagelAA.jpg
 about:
   template: jolla
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/ben_nagel427
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/ben-nagel427
     - icon: github
       text: Github
-      href: https://github.com
-
+      href: https://github.com/nagelben
 ---
 
 About this blog

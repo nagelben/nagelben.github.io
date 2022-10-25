@@ -2,8 +2,17 @@
   {
     "listing": "/index.html",
     "items": [
+      "/nagelben.github.io/posts/post-with-code/index.html",
       "/posts/post-with-code/index.html",
+      "/nagelben.github.io/posts/welcome/index.html",
       "/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/nagelben.github.io/index.html",
+    "items": [
+      "/nagelben.github.io/posts/post-with-code/index.html",
+      "/nagelben.github.io/posts/welcome/index.html"
     ]
   }
 ]
