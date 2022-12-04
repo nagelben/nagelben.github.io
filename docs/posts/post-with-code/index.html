@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Harlow Malloc">
-<meta name="dcterms.date" content="2022-10-24">
+<meta name="author" content="Ben Nagel">
+<meta name="dcterms.date" content="2022-12-04">
 
-<title>../.. - Post With Code</title>
+<title>../.. - STAT 5014 Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -104,10 +167,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Post With Code</h1>
+      <h1 class="title">STAT 5014 Project</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-                <div class="quarto-category">code</div>
+                <div class="quarto-category">NFL</div>
+                <div class="quarto-category">weather</div>
+                <div class="quarto-category">performance</div>
                 <div class="quarto-category">analysis</div>
               </div>
                   </div>
@@ -119,14 +183,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Harlow Malloc </p>
+               <p>Ben Nagel </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 24, 2022</p>
+        <p class="date">2022-12-04</p>
       </div>
     </div>
       
@@ -143,9 +207,644 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a post with executable code.</p>
+<section id="objectives" class="level3">
+<h3 class="anchored" data-anchor-id="objectives">Objectives</h3>
+<p>The purpose of this project is to determine if the climate of National Football League teams’ host cities impacts that team’s performance in extreme weather games. Data from NFLSavant.com detailed the outcome of every NFL game from 1970 to 2013 along with the weather from that game. I decided to split the results of NFL games up between the approximately 1000 coldest games played during this time frame, with the approximately 1000 warmest games played. These bounds were 33 degrees Fahrenheit and colder and 73 degrees Fahrenheit. To overcome biases for teams that are just historically better/worse, the difference in win percentage of normal weather games (between 34 and 72 degrees Fahrenheit) with the cold games and the hot games win percentages. I will visualize these results along with figuring out if there is any correlation between host city’s warmest average monthly high and coldest average monthly low during the NFL season with their win percentages in different weather.</p>
+</section>
+<section id="data-inport" class="level3">
+<h3 class="anchored" data-anchor-id="data-inport">Data Inport</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># getting data in from NFL Savant</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>NFLweather <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/2022 Fall/STAT 5014 Stat Program Packages/Project/weather_20131231.xls"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(NFLweather)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View(NFLweather)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-preparation" class="level3">
+<h3 class="anchored" data-anchor-id="data-preparation">Data Preparation</h3>
+<p>From the original data, I summed each franchise’s total wins, losses, and ties, and calculated their win percentage.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating empty vectors to add more data to set</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>homewin <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>awaywin <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>homeloss <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>awayloss <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>hometie <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>awaytie <span class="ot">=</span> <span class="fu">c</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># to show who won each game</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(NFLweather)) {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (home_score[i] <span class="sc">&gt;</span> away_score[i]) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        homewin[i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        awaywin[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        homeloss[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        awayloss[i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        hometie[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        awaytie[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (home_score[i] <span class="sc">&lt;</span> away_score[i]) {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        homewin[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        awaywin[i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        homeloss[i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        awayloss[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        hometie[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        awaytie[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (home_score[i] <span class="sc">==</span> away_score[i]) {</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        homewin[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        awaywin[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        homeloss[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        awayloss[i] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        hometie[i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        awaytie[i] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># adding status of game wins to data</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>NFLweather1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(NFLweather, homewin, awaywin,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    homeloss, awayloss, hometie, awaytie), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># adding wins/losses/ties per team</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>teams <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">1</span>]</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>wins <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaywin, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>losses <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homeloss, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awayloss, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>ties <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>hometie, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaytie, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>winpct <span class="ot">=</span> wins<span class="sc">/</span>(wins <span class="sc">+</span> losses)  <span class="co">#calculating win percentage for franchise history</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co"># all time team records</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>records <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(teams, wins, losses, ties, <span class="fu">round</span>(winpct,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>)))</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(records) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Team"</span>, <span class="st">"Wins"</span>, <span class="st">"Losses"</span>, <span class="st">"Ties"</span>, <span class="st">"Win %"</span>)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>records</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   Team Wins Losses Ties Win %
+1     Arizona Cardinals  119    179    0 0.399
+2       Atlanta Falcons  295    419    6 0.413
+3       Baltimore Colts  187    159    6  0.54
+4      Baltimore Ravens  167    132    1 0.559
+5       Boston Patriots    2     12    0 0.143
+6         Buffalo Bills  321    374    2 0.462
+7     Carolina Panthers  150    154    0 0.493
+8         Chicago Bears  416    412    7 0.502
+9    Cincinnati Bengals  310    378    1 0.451
+10     Cleveland Browns  366    408    8 0.473
+11       Dallas Cowboys  488    360    6 0.575
+12       Denver Broncos  408    293    6 0.582
+13        Detroit Lions  328    456   15 0.418
+14    Green Bay Packers  469    366   14 0.562
+15       Houston Oilers  188    235    2 0.444
+16       Houston Texans   78    114    0 0.406
+17   Indianapolis Colts  262    234    0 0.528
+18 Jacksonville Jaguars  145    159    0 0.477
+19   Kansas City Chiefs  330    355    7 0.482
+20  Los Angeles Raiders  124     88    0 0.585
+21     Los Angeles Rams  279    249   11 0.528
+22       Miami Dolphins  418    295    2 0.586
+23    Minnesota Vikings  436    375   10 0.538
+24 New England Patriots  379    304    0 0.555
+25   New Orleans Saints  314    399    5  0.44
+26      New York Giants  417    416    9 0.501
+27        New York Jets  309    382    2 0.447
+28      Oakland Raiders  252    242    6  0.51
+29  Philadelphia Eagles  416    416   13   0.5
+30    Phoenix Cardinals   32     64    0 0.333
+31  Pittsburgh Steelers  489    370    9 0.569
+32   San Diego Chargers  331    360    5 0.479
+33  San Francisco 49ers  465    373   11 0.555
+34     Seattle Seahawks  289    300    0 0.491
+35  St. Louis Cardinals  186    205   14 0.476
+36       St. Louis Rams  123    158    1 0.438
+37 Tampa Bay Buccaneers  232    366    1 0.388
+38     Tennessee Oilers   16     16    0   0.5
+39     Tennessee Titans  136    111    0 0.551
+40  Washington Redskins  424    408   12  0.51</code></pre>
+</div>
+</div>
+</section>
+<section id="data-summarization" class="level3">
+<h3 class="anchored" data-anchor-id="data-summarization">Data Summarization</h3>
+<p>I repeated the process above with conditions of the coldest and hottest thousand games in NFL history, along with the most extreme 250 hottest and coldest. I compiled each franchises’ records in each of the weather conditions (Extreme Cold, Cold, Normal, Hot, Extreme Hot). I finally compiled a table of just the win percentages for each franchise in each of the weather conditions and included the average annual temperature, coldest monthly low from the months of September to February, and the highest monthly high temperature from the months of September to February.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># doing the same as above for the coldest 1000ish games...</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>coldGames <span class="ot">=</span> NFLweather1[NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span> <span class="dv">34</span>, ]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>winsC <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">34</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaywin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">34</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>lossesC <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homeloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">34</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awayloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">34</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>tiesC <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>hometie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="dv">34</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaytie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">34</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>winpctC <span class="ot">=</span> winsC<span class="sc">/</span>(winsC <span class="sc">+</span> lossesC)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>recordsC <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(teams, winsC, lossesC, tiesC, <span class="fu">round</span>(winpctC,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>)))</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co"># and hottest 1000 games...</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>hotGames <span class="ot">=</span> NFLweather1[NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span> <span class="dv">72</span>, ]</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>winsH <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaywin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>lossesH <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homeloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awayloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>tiesH <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>hometie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaytie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>winpctH <span class="ot">=</span> winsH<span class="sc">/</span>(winsH <span class="sc">+</span> lossesH)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>recordsH <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(teams, winsH, lossesH, tiesH, <span class="fu">round</span>(winpctH,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>)))</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co"># and the coldest ~250 games</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>extremeColdGames <span class="ot">=</span> NFLweather1[NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span> <span class="dv">22</span>,</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>winsXC <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    <span class="dv">22</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaywin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="dv">22</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>lossesXC <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homeloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="dv">22</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awayloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    <span class="dv">22</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>tiesXC <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>hometie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="dv">22</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaytie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    <span class="dv">22</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>winpctXC <span class="ot">=</span> winsXC<span class="sc">/</span>(winsXC <span class="sc">+</span> lossesXC)</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>recordsXC <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(teams, winsXC, lossesXC, tiesXC,</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(winpctXC, <span class="dv">3</span>)))</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="co"># and hottest ~250 games in NFL history</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>extremeHotGames <span class="ot">=</span> NFLweather1[NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span> <span class="dv">81</span>, ]</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>winsXH <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="dv">81</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaywin <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    <span class="dv">81</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>lossesXH <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homeloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="dv">81</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awayloss <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    <span class="dv">81</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>tiesXH <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>hometie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>    <span class="dv">81</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaytie <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    <span class="dv">81</span>, <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team), <span class="at">FUN =</span> sum)[,</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>]</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>winpctXH <span class="ot">=</span> winsXH<span class="sc">/</span>(winsXH <span class="sc">+</span> lossesXH)</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>recordsXH <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(teams, winsXH, lossesXH, tiesXH,</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(winpctXH, <span class="dv">3</span>)))</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="co"># games that I think were played indoors from looking at</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="co"># data, although I have no way to figure this out for sure</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>indoorGames <span class="ot">=</span> NFLweather1[NFLweather1<span class="sc">$</span>temperature <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>wind_chill <span class="sc">==</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="sc">|</span> NFLweather1<span class="sc">$</span>weather <span class="sc">==</span> <span class="st">"72 degrees- no wind"</span>, ]</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>winsI <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">==</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>wind_chill <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> NFLweather1<span class="sc">$</span>weather <span class="sc">==</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    <span class="st">"72 degrees- no wind"</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaywin <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">==</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>wind_chill <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> NFLweather1<span class="sc">$</span>weather <span class="sc">==</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    <span class="st">"72 degrees- no wind"</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>lossesI <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homeloss <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">==</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>wind_chill <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> NFLweather1<span class="sc">$</span>weather <span class="sc">==</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>    <span class="st">"72 degrees- no wind"</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awayloss <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">==</span></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>wind_chill <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> NFLweather1<span class="sc">$</span>weather <span class="sc">==</span></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>    <span class="st">"72 degrees- no wind"</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>tiesI <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>hometie <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">==</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>wind_chill <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> NFLweather1<span class="sc">$</span>weather <span class="sc">==</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>    <span class="st">"72 degrees- no wind"</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaytie <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">==</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>wind_chill <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> NFLweather1<span class="sc">$</span>weather <span class="sc">==</span></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>    <span class="st">"72 degrees- no wind"</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>winpctI <span class="ot">=</span> winsI<span class="sc">/</span>(winsI <span class="sc">+</span> lossesI)</span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>recordsI <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(teams, winsI, lossesI, tiesI, <span class="fu">round</span>(winpctI,</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>)))</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="co"># games played in temperatures between 34 and 72 degrees</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>normalGames <span class="ot">=</span> NFLweather1[(NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;=</span> <span class="dv">72</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;=</span></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>    <span class="dv">34</span>), ]</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>winsN <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homewin <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;=</span></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;=</span> <span class="dv">34</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaywin <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;=</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;=</span> <span class="dv">34</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>lossesN <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>homeloss <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;=</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;=</span> <span class="dv">34</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awayloss <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;=</span></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;=</span> <span class="dv">34</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a>tiesN <span class="ot">=</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>hometie <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;=</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;=</span> <span class="dv">34</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>home_team),</span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>] <span class="sc">+</span> <span class="fu">aggregate</span>(NFLweather1<span class="sc">$</span>awaytie <span class="sc">&amp;</span> (NFLweather1<span class="sc">$</span>temperature <span class="sc">&lt;=</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>    <span class="dv">72</span> <span class="sc">&amp;</span> NFLweather1<span class="sc">$</span>temperature <span class="sc">&gt;=</span> <span class="dv">34</span>), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">Category =</span> NFLweather1<span class="sc">$</span>away_team),</span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a>    <span class="at">FUN =</span> sum)[, <span class="dv">2</span>]</span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>winpctN <span class="ot">=</span> winsN<span class="sc">/</span>(winsN <span class="sc">+</span> lossesN)</span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a>recordsN <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(teams, winsN, lossesN, tiesN, <span class="fu">round</span>(winpctN,</span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>)))</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a><span class="co"># putting together wins/losses for different types of</span></span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a><span class="co"># weather</span></span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a>recordsTable <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(records, recordsXC[, <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>], recordsC[,</span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>], recordsN[, <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>], recordsH[, <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>], recordsXH[, <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]))</span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(recordsTable) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Team"</span>, <span class="st">"Wins"</span>, <span class="st">"Losses"</span>, <span class="st">"Ties"</span>,</span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Win%"</span>, <span class="st">"XCWins"</span>, <span class="st">"XCLosses"</span>, <span class="st">"XCTies"</span>, <span class="st">"XCWin%"</span>, <span class="st">"CWins"</span>,</span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CLosses"</span>, <span class="st">"CTies"</span>, <span class="st">"CWin%"</span>, <span class="st">"NWins"</span>, <span class="st">"NLosses"</span>, <span class="st">"NTies"</span>,</span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NWin%"</span>, <span class="st">"HWins"</span>, <span class="st">"HLosses"</span>, <span class="st">"HTies"</span>, <span class="st">"HWin%"</span>, <span class="st">"EHWins"</span>,</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a>    <span class="st">"EHLosses"</span>, <span class="st">"EHTies"</span>, <span class="st">"EHWin%"</span>)</span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a><span class="co"># instances where a team did not play in that particular</span></span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a><span class="co"># weather in their history</span></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a>recordsTable[<span class="dv">5</span>, <span class="dv">9</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a>recordsTable[<span class="dv">5</span>, <span class="dv">21</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a>recordsTable[<span class="dv">5</span>, <span class="dv">25</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a>recordsTable[<span class="dv">9</span>, <span class="dv">25</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a>recordsTable[<span class="dv">38</span>, <span class="dv">9</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>recordsTable[<span class="dv">38</span>, <span class="dv">25</span>] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="co"># changing all the numbers from characters to numbers to do</span></span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a><span class="co"># calculations with</span></span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>Wins <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>Wins))</span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>Losses <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>Losses))</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>Ties <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>Ties))</span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span><span class="st">"Win%"</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span><span class="st">"Win%"</span>))</span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>XCWins <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>XCWins))</span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>XCLosses <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>XCLosses))</span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>XCTies <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>XCTies))</span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span><span class="st">"XCWin%"</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span><span class="st">"XCWin%"</span>))</span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>CWins <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>CWins))</span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>CLosses <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>CLosses))</span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>CTies <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>CTies))</span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span><span class="st">"CWin%"</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span><span class="st">"CWin%"</span>))</span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>NWins <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>NWins))</span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>NLosses <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>NLosses))</span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>NTies <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>NTies))</span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span><span class="st">"NWin%"</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span><span class="st">"NWin%"</span>))</span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>HWins <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>HWins))</span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>HLosses <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>HLosses))</span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>HTies <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>HTies))</span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span><span class="st">"HWin%"</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span><span class="st">"HWin%"</span>))</span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>EHWins <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>EHWins))</span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>EHLosses <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>EHLosses))</span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span>EHTies <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span>EHTies))</span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a>recordsTable<span class="sc">$</span><span class="st">"EHWin%"</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(recordsTable<span class="sc">$</span><span class="st">"EHWin%"</span>))</span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a><span class="co"># recordsTable</span></span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a><span class="co"># finding win% differentials from overall record to records</span></span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a><span class="co"># in different temperatures</span></span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a>diffTable <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(records[, <span class="dv">1</span>], <span class="fu">round</span>(recordsTable[,</span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a>    <span class="dv">9</span>] <span class="sc">-</span> recordsTable[, <span class="dv">5</span>], <span class="dv">3</span>), <span class="fu">round</span>(recordsTable[, <span class="dv">13</span>] <span class="sc">-</span> recordsTable[,</span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>], <span class="dv">3</span>), <span class="fu">round</span>(recordsTable[, <span class="dv">17</span>] <span class="sc">-</span> recordsTable[, <span class="dv">5</span>], <span class="dv">3</span>),</span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(recordsTable[, <span class="dv">21</span>] <span class="sc">-</span> recordsTable[, <span class="dv">5</span>], <span class="dv">3</span>), <span class="fu">round</span>(recordsTable[,</span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a>        <span class="dv">25</span>] <span class="sc">-</span> recordsTable[, <span class="dv">5</span>], <span class="dv">3</span>)))</span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diffTable) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Team"</span>, <span class="st">"XC"</span>, <span class="st">"C"</span>, <span class="st">"N"</span>, <span class="st">"H"</span>, <span class="st">"EH"</span>)</span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a><span class="co"># changing elements to numbers again</span></span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a>diffTable<span class="sc">$</span>XC <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(diffTable<span class="sc">$</span>XC))</span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a>diffTable<span class="sc">$</span>C <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(diffTable<span class="sc">$</span>C))</span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a>diffTable<span class="sc">$</span>N <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(diffTable<span class="sc">$</span>N))</span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a>diffTable<span class="sc">$</span>H <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(diffTable<span class="sc">$</span>H))</span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a>diffTable<span class="sc">$</span>EH <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(diffTable<span class="sc">$</span>EH))</span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a><span class="co"># getting rid of teams who played less than 100 games in</span></span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a><span class="co"># franchise history</span></span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a>diffTable2 <span class="ot">=</span> diffTable[<span class="sc">-</span><span class="dv">5</span>, ]</span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a>diffTable2 <span class="ot">=</span> diffTable2[<span class="sc">-</span><span class="dv">29</span>, ]</span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a>diffTable2 <span class="ot">=</span> diffTable2[<span class="sc">-</span><span class="dv">36</span>, ]</span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a><span class="co"># I want temperatures to be a part of this visualization,</span></span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a><span class="co"># so I found the average annual temperature for each host</span></span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a><span class="co"># city and added it to the data set</span></span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">c</span>(<span class="dv">87</span>, <span class="dv">73</span>, <span class="dv">67</span>, <span class="dv">67</span>, <span class="dv">57</span>, <span class="dv">72</span>, <span class="dv">61</span>, <span class="dv">64</span>, <span class="dv">61</span>, <span class="dv">78</span>,</span>
+<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a>    <span class="dv">66</span>, <span class="dv">59</span>, <span class="dv">46</span>, <span class="dv">80</span>, <span class="dv">80</span>, <span class="dv">63</span>, <span class="dv">80</span>, <span class="dv">65</span>, <span class="dv">75</span>, <span class="dv">75</span>, <span class="dv">84</span>, <span class="dv">55</span>, <span class="dv">59</span>, <span class="dv">79</span>, <span class="dv">63</span>,</span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a>    <span class="dv">63</span>, <span class="dv">64</span>, <span class="dv">65</span>, <span class="dv">61</span>, <span class="dv">62</span>, <span class="dv">64</span>, <span class="dv">61</span>, <span class="dv">57</span>, <span class="dv">57</span>, <span class="dv">83</span>, <span class="dv">72</span>, <span class="dv">68</span>))</span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a>tempsH <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">71</span>, <span class="dv">80</span>, <span class="dv">80</span>, <span class="dv">71</span>, <span class="dv">81</span>, <span class="dv">73</span>, <span class="dv">79</span>, <span class="dv">74</span>, <span class="dv">89</span>,</span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a>    <span class="dv">79</span>, <span class="dv">73</span>, <span class="dv">70</span>, <span class="dv">88</span>, <span class="dv">88</span>, <span class="dv">78</span>, <span class="dv">88</span>, <span class="dv">80</span>, <span class="dv">78</span>, <span class="dv">78</span>, <span class="dv">89</span>, <span class="dv">72</span>, <span class="dv">72</span>, <span class="dv">87</span>, <span class="dv">76</span>,</span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a>    <span class="dv">76</span>, <span class="dv">74</span>, <span class="dv">78</span>, <span class="dv">75</span>, <span class="dv">67</span>, <span class="dv">70</span>, <span class="dv">67</span>, <span class="dv">79</span>, <span class="dv">79</span>, <span class="dv">89</span>, <span class="dv">82</span>, <span class="dv">78</span>))</span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a>tempsC <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">35</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">19</span>, <span class="dv">30</span>, <span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">30</span>,</span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a>    <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">9</span>, <span class="dv">44</span>, <span class="dv">44</span>, <span class="dv">20</span>, <span class="dv">39</span>, <span class="dv">22</span>, <span class="dv">58</span>, <span class="dv">58</span>, <span class="dv">60</span>, <span class="dv">8</span>, <span class="dv">22</span>, <span class="dv">45</span>, <span class="dv">26</span>,</span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a>    <span class="dv">26</span>, <span class="dv">44</span>, <span class="dv">26</span>, <span class="dv">21</span>, <span class="dv">48</span>, <span class="dv">46</span>, <span class="dv">36</span>, <span class="dv">21</span>, <span class="dv">21</span>, <span class="dv">52</span>, <span class="dv">28</span>, <span class="dv">27</span>))</span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a>tempsTable <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(records[, <span class="dv">1</span>], temps, tempsH, tempsC))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cbind(records[, 1], temps, tempsH, tempsC): number of rows of result
+is not a multiple of vector length (arg 2)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tempsTable<span class="sc">$</span>temps <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(tempsTable<span class="sc">$</span>temps))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>diffTable3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(diffTable2, temps, tempsH, tempsC))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diffTable3) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Team"</span>, <span class="st">"XC"</span>, <span class="st">"C"</span>, <span class="st">"N"</span>, <span class="st">"H"</span>, <span class="st">"XH"</span>, <span class="st">"Temp"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TempH"</span>, <span class="st">"TempC"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>diffTable3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   Team     XC      C      N      H     XH Temp TempH TempC
+1     Arizona Cardinals -0.399 -0.399  0.010  0.022  0.045   87   100    45
+2       Atlanta Falcons -0.097 -0.070  0.006 -0.028 -0.105   73    71    35
+3       Baltimore Colts  0.174  0.037  0.026 -0.366 -0.540   67    80    29
+4      Baltimore Ravens  0.441  0.108 -0.013 -0.007 -0.159   67    80    29
+6         Buffalo Bills  0.153  0.066 -0.003 -0.065 -0.062   57    71    19
+7     Carolina Panthers  0.007  0.033  0.011 -0.093 -0.160   72    81    30
+8         Chicago Bears  0.036  0.014 -0.009  0.083  0.298   61    73    18
+9    Cincinnati Bengals  0.299  0.067  0.004 -0.165 -0.451   64    79    22
+10     Cleveland Browns  0.027 -0.048  0.008  0.015 -0.273   61    74    22
+11       Dallas Cowboys -0.218 -0.104 -0.005  0.078  0.131   78    89    30
+12       Denver Broncos  0.033  0.011 -0.003  0.008  0.118   66    79    18
+13        Detroit Lions  0.082 -0.006  0.006 -0.085  0.182   59    73    18
+14    Green Bay Packers  0.046  0.083 -0.015 -0.123 -0.229   46    70     9
+15       Houston Oilers -0.158 -0.087  0.011 -0.063  0.223   80    88    44
+16       Houston Texans -0.006  0.094 -0.049  0.227  0.412   80    88    44
+17   Indianapolis Colts -0.028 -0.122  0.007  0.022  0.108   63    78    20
+18 Jacksonville Jaguars -0.048 -0.068 -0.010  0.052 -0.124   80    88    39
+19   Kansas City Chiefs  0.165  0.030 -0.004 -0.005 -0.097   65    80    22
+20  Los Angeles Raiders -0.385 -0.130 -0.008  0.248  0.415   75    78    58
+21     Los Angeles Rams -0.255 -0.278  0.011  0.063  0.072   75    78    58
+22       Miami Dolphins -0.015 -0.162 -0.032  0.063  0.067   84    89    60
+23    Minnesota Vikings -0.023  0.013  0.000 -0.038 -0.038   55    72     8
+24 New England Patriots -0.155  0.098 -0.009 -0.032 -0.247   59    72    22
+25   New Orleans Saints -0.107 -0.040 -0.007  0.092 -0.040   79    87    45
+26      New York Giants -0.201 -0.008 -0.002  0.028 -0.030   63    76    26
+27        New York Jets  0.053 -0.064  0.016 -0.062 -0.003   63    76    26
+28      Oakland Raiders -0.260 -0.125  0.016 -0.150 -0.010   64    74    44
+29  Philadelphia Eagles  0.071 -0.013  0.004 -0.029  0.136   65    78    26
+31  Pittsburgh Steelers -0.040  0.071 -0.002 -0.138 -0.236   61    75    21
+32   San Diego Chargers -0.193 -0.090 -0.002  0.082  0.077   62    67    48
+33  San Francisco 49ers  0.045 -0.070  0.002  0.012  0.112   64    70    46
+34     Seattle Seahawks -0.062 -0.146  0.010 -0.036  0.080   61    67    36
+35  St. Louis Cardinals -0.091 -0.091  0.027 -0.176 -0.476   57    79    21
+36       St. Louis Rams  0.062 -0.009  0.008 -0.126 -0.188   57    79    21
+37 Tampa Bay Buccaneers -0.188 -0.240 -0.006  0.048  0.017   83    89    52
+39     Tennessee Titans -0.107 -0.113  0.018 -0.051 -0.384   72    82    28
+40  Washington Redskins  0.046  0.018  0.001 -0.024 -0.157   68    78    27</code></pre>
+</div>
+</div>
+</section>
+<section id="transformations" class="level3">
+<h3 class="anchored" data-anchor-id="transformations">Transformations</h3>
+<p>Because temperature are on a different scale than the difference of win percentage, I standardized temperature to be within the range of the differences of win percentages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># temperatures are on a much different scale than win%, so</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># I standardized the temperatures and added them to the</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>s.temp <span class="ot">=</span> (diffTable3<span class="sc">$</span>Temp <span class="sc">-</span> <span class="fu">mean</span>(diffTable3<span class="sc">$</span>Temp))<span class="sc">/</span>(<span class="dv">50</span> <span class="sc">*</span> <span class="fu">sd</span>(diffTable3<span class="sc">$</span>Temp))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>s.tempH <span class="ot">=</span> (diffTable3<span class="sc">$</span>TempH <span class="sc">-</span> <span class="fu">mean</span>(diffTable3<span class="sc">$</span>TempH))<span class="sc">/</span>(<span class="dv">50</span> <span class="sc">*</span> <span class="fu">sd</span>(diffTable3<span class="sc">$</span>TempH))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>s.tempC <span class="ot">=</span> (diffTable3<span class="sc">$</span>TempC <span class="sc">-</span> <span class="fu">mean</span>(diffTable3<span class="sc">$</span>TempC))<span class="sc">/</span>(<span class="dv">50</span> <span class="sc">*</span> <span class="fu">sd</span>(diffTable3<span class="sc">$</span>TempC))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>diffTable4 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(diffTable2, <span class="fu">as.numeric</span>(s.tempH),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.numeric</span>(s.tempC)))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(diffTable4) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Team"</span>, <span class="st">"XC"</span>, <span class="st">"C"</span>, <span class="st">"N"</span>, <span class="st">"H"</span>, <span class="st">"EH"</span>, <span class="st">"s.tempH"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"s.tempC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualization">Data visualization</h3>
+<p>I used ggplot to visualize the data. I did a barplot on the difference of win percentages, putting them in order from the best performers in that weather to the worst performers in that weather compared to normal weather games. To show the impact of the host city’s temperature, I added dots to the barplot of the standardized host city temperatures; for the cold weather performance barplot, I used the host city’s lowest monthly average low temperature during the NFL season and the same for warm weather.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># base R to make sure I am on the right track</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot(diffTable2$XC, col = '907909')</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot(diffTable2$C) barplot(diffTable2$N)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># barplot(diffTable2$H) barplot(diffTable2$EH)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># vectors of colors that I felt like best represented each</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># franchise's colors</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"firebrick2"</span>, <span class="st">"firebrick4"</span>, <span class="st">"lightskyblue2"</span>, <span class="st">"purple4"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mediumblue"</span>, <span class="st">"deepskyblue1"</span>, <span class="st">"chocolate1"</span>, <span class="st">"darkorange"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"salmon1"</span>, <span class="st">"royalblue"</span>, <span class="st">"orange"</span>, <span class="st">"dodgerblue1"</span>, <span class="st">"darkgreen"</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"steelblue1"</span>, <span class="st">"midnightblue"</span>, <span class="st">"blue2"</span>, <span class="st">"khaki3"</span>, <span class="st">"red2"</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"black"</span>, <span class="st">"gold"</span>, <span class="st">"aquamarine2"</span>, <span class="st">"purple3"</span>, <span class="st">"blue4"</span>, <span class="st">"goldenrod2"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"royalblue3"</span>, <span class="st">"seagreen4"</span>, <span class="st">"slategray"</span>, <span class="st">"palegreen4"</span>, <span class="st">"gold1"</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"yellow"</span>, <span class="st">"darkgoldenrod2"</span>, <span class="st">"darkslateblue"</span>, <span class="st">"orangered4"</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"burlywood1"</span>, <span class="st">"indianred4"</span>, <span class="st">"cornflowerblue"</span>, <span class="st">"tomato4"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = diffTable2, aes(x = reorder(Team, C, na.rm</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># = TRUE), y = C)) + geom_bar(stat = 'identity', fill =</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co"># colors) + coord_flip() + theme_economist_white()</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = diffTable2, aes(x = reorder(Team, H, na.rm</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># = TRUE), y = H)) + geom_bar(stat = 'identity', fill =</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co"># colors) + coord_flip() + theme_economist_white()</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = diffTable2, aes(x = reorder(Team, N, na.rm</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># = TRUE), y = N)) + geom_bar(stat = 'identity', fill =</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co"># colors) + coord_flip() + theme_economist_white()</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting just the temperature data ggplot(data =</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># diffTable4, aes(x = reorder(Team, St.Temp, na.rm = TRUE),</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co"># y = St.Temp)) + geom_bar(stat = 'identity', fill =</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co"># colors) + coord_flip() + theme_economist_white() +</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co"># ggtitle('Standardized Temperature by Team's Host City') +</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co"># theme(plot.title = element_text(hjust = 0.5),</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co"># plot.subtitle = element_text(hjust = 0.5), axis.title.x =</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="co"># element_text(margin = margin(t = 20)), axis.title.y =</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co"># element_text(margin = margin(r = 20))) + labs(y =</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 'Standardized Host City Temperature', x = 'Team')</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting win percentage differential in cold games</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diffTable4, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Team, C, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> C)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> colors) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_economist_white</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Win Percentage Differential in Cold Weather Games"</span>,</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Win % in Games Colder than 22 degrees Fahrenheit minus Overall Franchise Win %"</span>) <span class="sc">+</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">20</span>))) <span class="sc">+</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Cold Game Win % - Overall Franchise Win %"</span>, <span class="at">x =</span> <span class="st">"Team"</span>,</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Blue dot represents standardized host city's annual average temperature."</span>) <span class="sc">+</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> diffTable4, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Team, C, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="sc">-</span>s.tempC), <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="960"></p>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># showing teams who may need to rely on normal/abnormal</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># weather to win games ggplot(data = diffTable4, aes(x =</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># reorder(Team, N, na.rm = TRUE), y = N)) + geom_bar(stat =</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 'identity', fill = colors) + coord_flip() +</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># theme_economist_white() + ggtitle('Win Percentage</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Differential in Typical Weather Games', subtitle = 'Win %</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># in Games Between 23 and 72 degrees Fahrenheit minus</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall Franchise Win %') + theme(plot.title =</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># element_text(hjust = 0.5), plot.subtitle =</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># element_text(hjust = 0.5), axis.title.x =</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># element_text(margin = margin(t = 20)), axis.title.y =</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># element_text(margin = margin(r = 20))) + labs(y =</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 'Typical Game Win % - Overall Franchise Win %', x =</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 'Team', caption = 'Black dot represents standardized host</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># city's annual average temperature.') + geom_point(data =</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># diffTable4, aes(x = reorder(Team, N, na.rm = TRUE), y =</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co"># s.temp), col = 'black', alpha = 0.5)</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># plotting win percentage differential in hot games</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> diffTable3, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Team, H, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> H)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> colors) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_economist_white</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Win Percentage Differential in Hot Weather Games"</span>,</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Win % in Games Warmer than 72 degrees Fahrenheit minus Overall Franchise Win %"</span>) <span class="sc">+</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">20</span>))) <span class="sc">+</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Hot Game Win % - Overall Franchise Win %"</span>, <span class="at">x =</span> <span class="st">"Team"</span>,</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Red dot represents standardized host city's annual average temperature."</span>) <span class="sc">+</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> diffTable4, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Team, N, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="dv">4</span> <span class="sc">*</span> s.tempH), <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+<p>These ggplots do not format well in RMarkdown, so I will attach them separately. However, it can be seen that more teams located in cold cities (represented by the blue dots) have a improved win percentage in cold weather (bars tend to the right for these cities). More of the warmer cities tend in the worse performances. In the normal temperature graph, the temperature dots appear scattered as expected. Finally, in the hot weather graph, dots again appear pretty scattered, hinting at no relationship between win percentage in hot games and host city high temperatures.</p>
+</section>
+<section id="correlation-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="correlation-analysis">Correlation Analysis</h3>
+<p>With these visualizations, I want to quantify the relationship between host city temperature and extreme weather game performance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(diffTable3<span class="sc">$</span>C, tempsC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.6294471</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(diffTable3<span class="sc">$</span>N, temps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.2402024</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(diffTable3<span class="sc">$</span>H, tempsH)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2333481</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diffTable3, <span class="fu">aes</span>(tempsC, C)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_economist_white</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Win % Differential vs. Host City Temp"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Win % in Games Colder than 34 degree F - Overall Franchise Win %"</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">20</span>))) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Cold Game Win % - Overall Franchise Win %"</span>, <span class="at">x =</span> <span class="st">"Team"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Win Percentage Differential in Cold Weather Games vs. Team Host City Temperature"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="768"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diffTable3, <span class="fu">aes</span>(temps, N)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_economist_white</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Win % Differential vs. Host City Temp"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Win % in Games between 35 and 72 degrees F minus Overall Franchise Win %"</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">20</span>))) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Typical Weather Game Win % - Overall Franchise Win %"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Team"</span>, <span class="at">caption =</span> <span class="st">"Win Percentage Differential in Cold Weather Games vs. Team Host City Temperature"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid" width="768"></p>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(diffTable3, <span class="fu">aes</span>(tempsH, H)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_economist_white</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Win % Differential vs. Host City Temp"</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Win % in Games Hotter than 72 degrees Fahrenheit minus Overall Franchise Win %"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>)),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">20</span>))) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Hot Game Win % - Overall Franchise Win %"</span>, <span class="at">x =</span> <span class="st">"Team"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Win Percentage Differential in Hot Weather Games vs. Team Host City Temperature"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-12-3.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+<p>There appeared to be a pretty strong inverse relationship between host city’s coldest temperatures and the team’s performance during cold weather games, with the correlation between the two variables being -0.63. For games played in temperatures between 34 and 73 degrees, there was still a much lower correlation between the two, at -0.24. This number is expected to be lower since in theory there should not be advantages in normal weather for NFL teams located in extreme weather cities. Finally, the same was found for warm weather which is interesting. The correlation between win percentage in hot weather with the host city’s highest monthly average high during the NFL season is 0.23. These results show that cold weather teams may have an advantage in cold weather games, but not as much for teams based in other climates.</p>
+</section>
+<section id="modeling" class="level3">
+<h3 class="anchored" data-anchor-id="modeling">Modeling</h3>
+<p>I next wanted to quantify the linear relationship between the NFL host city’s winter weather with the team’s win percentage in games colder than 33 degrees Fahrenheit. The following shows result from a simple linear regression model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(diffTable3$C ~ tempsC)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(diffTable3<span class="sc">$</span>C <span class="sc">~</span> tempsC))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = diffTable3$C ~ tempsC)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.28410 -0.04885  0.01128  0.05005  0.20387 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.111566   0.036012   3.098  0.00383 ** 
+tempsC      -0.005033   0.001050  -4.792    3e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.08639 on 35 degrees of freedom
+Multiple R-squared:  0.3962,    Adjusted R-squared:  0.379 
+F-statistic: 22.97 on 1 and 35 DF,  p-value: 2.999e-05</code></pre>
+</div>
+</div>
+<p>To predict each team’s win percentage, one could take the host city’s coldest average monthly low and multiply it by -0.005, then add this to 0.112. This model and it’s coefficients are significant, but only around 40% of the variation in the team’s win percentage is explained by their winter temperatures. Because of this low expanatory rate, I would never use this model to place sports bets. I added another term to the model to show that good teams just play better regardless of weather, too. The results of this is shown in the R output below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(diffTable3<span class="sc">$</span>C <span class="sc">~</span> tempsC <span class="sc">+</span> diffTable3<span class="sc">$</span>N))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = diffTable3$C ~ tempsC + diffTable3$N)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.245582 -0.043680  0.001797  0.050000  0.150452 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   0.133870   0.031730   4.219 0.000172 ***
+tempsC       -0.005678   0.000925  -6.138  5.7e-07 ***
+diffTable3$N -3.179690   0.885943  -3.589 0.001033 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07464 on 34 degrees of freedom
+Multiple R-squared:  0.5621,    Adjusted R-squared:  0.5363 
+F-statistic: 21.82 on 2 and 34 DF,  p-value: 8.004e-07</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lm(diffTable3$H ~ tempsH))</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lm(diffTable3$H ~ tempsH + diffTable3$N))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To predict each team’s win percentage with this model, one could take the host city’s coldest average monthly low and multiply it by -0.006 and add this to 0.134. This model and it’s coefficients are significant and now explains around 56% of the variation in the team’s win percentage. This is a little better, but I am still not sure if it is enough to use to gamble with. To determine a better prediction model, more variables and different types of models should be considered.</p>
+</section>
+<section id="evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation">Evaluation</h3>
+<p>For this project, I really wanted to focus on data visualization. I referred to many online resources on how to customize graphs on ggplot. I really hadn’t customized a plot using ggplot this much before. It was interesting to see how weather can affect team performance. This project idea came to me after reading an article about home field advantage for teams who play in cities with cold winter weather. However, this analysis showed that the Cleveland Browns are the worst team in cold weather over the past few years; I immediately thought that this is just because they were the worst team overall. Because of this, I wanted to compare the team’s record over this time with their record in extreme weather. I did end up showing that the Browns do play worse in cold games, but there were many teams that were even worse. A large majority of the time spent on this project was just getting the data to where I could work with it. The next most time consuming part of this project with just customizing the ggplots to get it to answer my questions visually. I do believe there are some limitations in this project. If I am truly trying to predict outcomes of NFL games, I would need many more variables. Also, since the NFL season is mainly in December, warm weather cities would never really get the chance to show their advantage in extreme heat. Also, the hottest 1000 NFL games go down all the way to 73 degrees Fahrenheit, which really is not that extreme of heat. The coldest games, again because the NFL mainly takes place in winter, go all the way down to near freezing temperatures. Along with performing better in weather similar to the team’s host city, I did not take into account teams just naturally playing better in home games (home field advantage). It was also difficult to take into account indoor stadiums. They were grouped in the normal temperature group, but I did not investigate what is called “dome-field advantage”.<br>
+Overall, I am happy with how this project went and I was happy to learn some more tools, especially in ggplot. I learned how to do a ton of different customization on ggplots to get them to be how I want them to be. I put in a lot of work in cleaning the data to get it to be workable. My favorite part was combining a bar plot with a scatter plot to add deeper meaning to a graph. Although it was pretty simple, it was also nice to visualize the linear model and correlation of different variables. I always enjoy answering questions about sports performances that come through my head.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

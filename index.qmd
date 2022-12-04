@@ -1,5 +1,5 @@
 ---
-title: "."
+title: "Ben Nagel's Website"
 listing:
   contents: posts
   sort: "date desc"
