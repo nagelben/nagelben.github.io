@@ -29,9 +29,14 @@ library(ggthemes)
 library(RColorBrewer)
 ```
 
+### Preview
+
+Finding how NFL teams' host cities' climates impact their performance in extreme weather games.
+
 ### Objectives
 
-The purpose of this project is to determine if the climate of National Football League teams' host cities impacts that team's performance in extreme weather games.  Data from NFLSavant.com detailed the outcome of every NFL game from 1970 to 2013 along with the weather from that game.  I decided to split the results of NFL games up between the approximately 1000 coldest games played during this time frame, with the approximately 1000 warmest games played.  These bounds were 33 degrees Fahrenheit and colder and 73 degrees Fahrenheit.  To overcome biases for teams that are just historically better/worse, the difference in win percentage of normal weather games (between 34 and 72 degrees Fahrenheit) with the cold games and the hot games win percentages.  I will visualize these results along with figuring out if there is any correlation between host city's warmest average monthly high and coldest average monthly low during the NFL season with their win percentages in different weather.  
+The purpose of this project is to determine if the climate of National Football League teams' host cities impacts that team's performance in extreme weather games.  
+Data from NFLSavant.com detailed the outcome of every NFL game from 1970 to 2013 along with the weather from that game.  I decided to split the results of NFL games up between the approximately 1000 coldest games played during this time frame, with the approximately 1000 warmest games played.  These bounds were 33 degrees Fahrenheit and colder and 73 degrees Fahrenheit.  To overcome biases for teams that are just historically better/worse, the difference in win percentage of normal weather games (between 34 and 72 degrees Fahrenheit) with the cold games and the hot games win percentages.  I will visualize these results along with figuring out if there is any correlation between host city's warmest average monthly high and coldest average monthly low during the NFL season with their win percentages in different weather.  
 
 
 ### Data Inport
