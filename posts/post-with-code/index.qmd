@@ -9,7 +9,7 @@ image: "image.jpg"
 ---
 title: "STAT 5014 Project"
 author: "Ben Nagel"
-output: pdf_document
+output: html_document
 date: "2022-12-04"
 ---
 
